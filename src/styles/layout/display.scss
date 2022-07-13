@@ -1,0 +1,45 @@
+$display : (
+  none,
+  block,
+  inline-block,
+  flex,
+  inline-flex,
+  grid,
+  inline-grid,
+);
+
+.d-none{
+  display: none!important;
+}
+.lock {
+  overflow: hidden;
+}
+.active {
+  display: flex;
+  @media(max-width:1024px){
+    display: none;
+  }
+}
+.disable {
+  display: none;
+  @media(max-width:1024px){
+    display: flex;
+  }
+}
+@each $key, $value in $grid-breakpoints {
+  @each $dis in $display {
+    .d-#{$key}-#{$dis} {
+      @include media-breakpoint-up($key){
+        display: $dis!important;
+      }
+    }
+  }
+}
+.container {
+  max-width: 1776px;
+  padding: 0px 24px;
+  margin: 0 auto;
+  @media(max-width:1024px){
+    padding: 0px 16px;
+  }
+}

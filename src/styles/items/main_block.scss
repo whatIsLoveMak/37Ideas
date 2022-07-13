@@ -1,0 +1,42 @@
+.main {
+    &_block {
+        padding-top: 300px;
+        @media(max-width:1024px){
+            padding-top: 124px;
+        }
+    }
+    &_text {
+        font-size: 64px;
+        line-height: 83px;
+        text-indent: 300px;
+        position: relative;
+        letter-spacing: -3%;
+        @media(max-width:1024px){
+            font-size: 32px;
+            line-height: 42px;
+            text-indent: 80px;
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            top:30px;
+            left: 0;
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            background: url(../../image/star.png) center no-repeat;
+            background-size: contain;
+            @media(max-width:1024px){
+                top: 13px;
+                width: 16px;
+                height: 16px;
+            }
+        }
+    }
+}
+.font {
+    font-family: 'IBMPlexSerif-Italic', 'sans-serif';
+}
+.around {
+    background: url(../../image/around.png) center no-repeat;
+}

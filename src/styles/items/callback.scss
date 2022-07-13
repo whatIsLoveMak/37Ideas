@@ -1,0 +1,48 @@
+.callback {
+    &__row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding-top: 92px;
+        border-radius: 32px;
+        border-top: 1px solid black;
+        @media(max-width:1024px){
+            padding-top: 40px;
+            border-radius: 16px;
+        }
+    }
+    &-text {
+        font-size: 64px;
+        line-height: 84px;
+        text-indent: 245px;
+        margin-bottom: 120px;
+        max-width: 1450px;
+        @media(max-width:1024px){
+            font-size: 32px;
+            line-height: 42px;
+            text-indent: 30px;
+            margin-bottom: 48px;
+        }
+    }
+    &-button {
+        width: 100%;
+        & button {
+            width: 100%;
+            font-size: 64px;
+            line-height: 77px;
+            color: white;
+            background: black;
+            padding: 58px 0px;
+            cursor: pointer;
+            border-radius: 32px;
+            border: none;
+            @media(max-width:1024px){
+                font-size: 32px;
+                line-height: 42px;
+                padding: 15px 0px;
+                border-radius: 16px;
+            }
+        }
+    }
+}

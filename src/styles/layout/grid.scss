@@ -1,0 +1,50 @@
+@import "~fast-grid/fast-grid";
+$enable-grid-classes            : true !default;
+
+// Grid breakpoints
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+        xxl: 1400px
+) !default;
+
+@include assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
+
+$grid : (
+        breakpoints: $grid-breakpoints,
+        columns: 12,
+        gap: (
+                xs: 8px,
+                md: 16px
+        ),
+        box-sizing: border-box,
+        mode: flex
+);
+
+.row{
+  @include grid-row();
+}
+
+@for $i from 1 through map-get($grid, columns){
+  .col-#{$i}{
+    @include grid-col($i);
+  }
+  @each $name, $value in map-get($grid, breakpoints){
+    .col-#{$name}-#{$i}{
+      @include grid-col((
+              $name: $i
+      ));
+    }
+  }
+}
+
+// Fluid container
+@if $enable-grid-classes {
+  .container-fluid {
+    @include grid-container();
+  }
+}
